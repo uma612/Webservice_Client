@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-CarShare" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/CarShare"/>
-        <property name="wsdl-CarShare" location="xml-resources/web-service-references/CarShare/wsdl/localhost_8080/CarShareWS/CarShare.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CarShare" destdir="${build.generated.dir}/jax-wsCache/CarShare" wsdl="${wsdl-CarShare}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/CarShareWS/CarShare?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-CarShare}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/CarShare"/>
+    <target name="wsimport-client-CarShareWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CarShareWS"/>
+        <property name="wsdl-CarShareWS" location="xml-resources/web-service-references/CarShareWS/wsdl/localhost_8080/CarShareWS/CarShareWS.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CarShareWS" destdir="${build.generated.dir}/jax-wsCache/CarShareWS" wsdl="${wsdl-CarShareWS}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/CarShareWS/CarShareWS?WSDL" xnocompile="true" xendorsed="true" package="service">
+            <depends file="${wsdl-CarShareWS}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CarShareWS"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/CarShare">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CarShareWS">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-CarShare" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/CarShare"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/car/services"/>
+    <target name="wsimport-client-clean-CarShareWS" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/CarShareWS"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/service"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-CarShare"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-CarShareWS"/>
 </project>
