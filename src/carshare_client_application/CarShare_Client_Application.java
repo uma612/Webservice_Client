@@ -10,15 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.List;
-import javax.swing.text.Document;
-import javax.swing.text.Element;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import service.CarShareWS;
 import service.CarShareWS_Service;
@@ -95,7 +88,7 @@ public class CarShare_Client_Application {
     private static String getAllReservationFromWS() {
         CarShareWS_Service service = new CarShareWS_Service();        
         CarShareWS port = service.getCarShareWSPort();
-        List<Reservation> r = port.getAllReservation();
+        List<Reservation> r = port.findAll();
         Iterator i = r.iterator();
         String result = "";
         while(i.hasNext())
@@ -110,7 +103,7 @@ public class CarShare_Client_Application {
         
         CarShareWS_Service service = new CarShareWS_Service();        
         CarShareWS port = service.getCarShareWSPort();
-         List<Reservation> r = port.getMemberReservation("501");
+        //List<Reservation> r = port.getMemberReservation("501");
         return "good member";
     }
     

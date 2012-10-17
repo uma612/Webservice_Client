@@ -10,26 +10,26 @@ import com.sun.jersey.api.client.WebResource;
 
 /**
  * Jersey REST client generated for REST resource:ReservationFacadeREST
- * [entities.reservation]<br>
+ * [service.reservation]<br>
  *  USAGE:
  * <pre>
- *        ReservationREST client = new ReservationREST();
+ *        CarShareREST client = new CarShareREST();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
  * </pre>
  *
- * @author Merca Skole
+ * @author Merca
  */
 public class ReservationREST {
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/CarShareREST/webresources";
+    private static final String BASE_URI = "http://localhost:8080/CarShareREST-war/webresources";
 
     public ReservationREST() {
         com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
         client = Client.create(config);
-        webResource = client.resource(BASE_URI).path("entities.reservation");
+        webResource = client.resource(BASE_URI).path("service.reservation");
     }
 
     public void remove(String id) throws UniformInterfaceException {
